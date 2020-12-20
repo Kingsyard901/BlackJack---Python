@@ -4,17 +4,20 @@ import random
 
 # Variables
 cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-
 player = random.sample(cards, 2)
 computer = random.sample(cards, 2)
 
 
+# Print out the first cards for player and computer
 print(f"You got the cards {player} which is a total of {sum(player)}")
 print(f"Computer got the cards {computer} which is a total of {sum(computer)} \n")
 
+
+# Variable for While loop
 game_is_on = True
 
 
+# Function for continuing game and choosing a new card
 def continue_game():
     global game_is_on
     go_on = input("Do you want another card? Type 'y' or 'n': ")
@@ -26,6 +29,7 @@ def continue_game():
         check_out()
 
 
+# Function to check if either players have won upon new cards as well as checking if nr 11 needs to be converted into 1
 def check_win():
     global game_is_on
 
@@ -55,6 +59,7 @@ def check_win():
         continue_game()
 
 
+# Function for when player chooses "n" (no) and don't want another card.
 def check_out():
     global game_is_on
     print(f"Player got cards {player} with a total of {sum(player)}")
@@ -72,16 +77,19 @@ def check_out():
     game_is_on = False
 
 
+# Function to add new card to player
 def add_card_player():
     player.append(random.choice(cards))
     print(f"Player got cards {player} with a total of {sum(player)}")
 
 
+# Function to add new card to computer
 def add_card_computer():
     computer.append(random.choice(cards))
     print(f"Computer got cards {computer} with a total of {sum(computer)}\n")
 
 
+# IF statement to check if the two initial cards given equals 21 (Black Jack) and announces the winner
 if sum(player) == 21:
     print("Player wins at draw!")
     game_is_on = False
@@ -90,5 +98,7 @@ elif sum(computer) == 21:
     game_is_on = False
 
 
+# While loop to keep the game going until there is a winner.
+# TODO: Add to while loop question if player wants to play another round
 while game_is_on:
     continue_game()

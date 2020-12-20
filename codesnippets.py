@@ -1,3 +1,5 @@
+#This is my first attempt on the game, I later replaced it for the functional version in main.
+
 # Imports
 import random
 
